@@ -1,0 +1,247 @@
+ Image docker-backend Building 
+ Image docker-ai-engine Building 
+ Image docker-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.52kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile.frontend
+#2 transferring dockerfile: 1.09kB done
+#2 DONE 0.0s
+
+#3 [ai-engine internal] load build definition from Dockerfile.ai
+#3 transferring dockerfile: 468B done
+#3 DONE 0.0s
+
+#4 [ai-engine internal] load metadata for docker.io/library/python:3.11-slim
+#4 ...
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [auth] library/python:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#7 DONE 1.6s
+
+#4 [ai-engine internal] load metadata for docker.io/library/python:3.11-slim
+#4 DONE 1.6s
+
+#8 [ai-engine internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [frontend internal] load .dockerignore
+#9 transferring context: 2B 0.0s done
+#9 DONE 0.1s
+
+#10 [frontend deps 1/4] FROM docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a66d28360ec71132750ec8
+#10 resolve docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a66d28360ec71132750ec8 0.1s done
+#10 DONE 0.1s
+
+#11 [ai-engine 1/7] FROM docker.io/library/python:3.11-slim@sha256:d6e4d224f70f9e0172a06a3a2eba2f768eb146811a349278b38fff3a36463b47
+#11 resolve docker.io/library/python:3.11-slim@sha256:d6e4d224f70f9e0172a06a3a2eba2f768eb146811a349278b38fff3a36463b47 0.1s done
+#11 DONE 0.1s
+
+#12 [frontend runner 3/7] RUN addgroup --system --gid 1001 nodejs
+#12 CACHED
+
+#13 [frontend deps 2/4] WORKDIR /app
+#13 CACHED
+
+#14 [frontend runner 4/7] RUN adduser --system --uid 1001 nextjs
+#14 CACHED
+
+#15 [ai-engine internal] load build context
+#15 transferring context: 282B done
+#15 DONE 0.0s
+
+#16 [frontend internal] load build context
+#16 transferring context: 1.43kB done
+#16 DONE 0.0s
+
+#17 [ai-engine 2/7] WORKDIR /app
+#17 CACHED
+
+#18 [ai-engine 3/7] RUN apt-get update && apt-get install -y --no-install-recommends     gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+#18 CACHED
+
+#19 [ai-engine 4/7] COPY requirements.txt .
+#19 CACHED
+
+#20 [ai-engine 5/7] RUN pip install --no-cache-dir -r requirements.txt
+#20 ...
+
+#21 [frontend builder 3/5] COPY --from=deps /app/node_modules ./node_modules
+#21 CACHED
+
+#22 [frontend deps 3/4] COPY package.json package-lock.json* ./
+#22 CACHED
+
+#23 [frontend deps 4/4] RUN npm install --omit=dev
+#23 CACHED
+
+#24 [frontend builder 4/5] COPY . .
+#24 CACHED
+
+#25 [frontend builder 5/5] RUN npm run build
+#25 1.684 
+#25 1.684 > adsmaster-frontend@1.0.0 build
+#25 1.684 > next build
+#25 1.684 
+#25 3.120 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#25 3.121 This information is used to shape Next.js' roadmap and prioritize features.
+#25 3.122 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#25 3.122 https://nextjs.org/telemetry
+#25 3.122 
+#25 3.329    ▲ Next.js 14.1.0
+#25 3.329 
+#25 3.487    Creating an optimized production build ...
+#25 ...
+
+#20 [ai-engine 5/7] RUN pip install --no-cache-dir -r requirements.txt
+#20 4.922 Collecting fastapi==0.109.0 (from -r requirements.txt (line 1))
+#20 5.214   Downloading fastapi-0.109.0-py3-none-any.whl.metadata (24 kB)
+#20 5.432 Collecting uvicorn==0.27.0 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 5.500   Downloading uvicorn-0.27.0-py3-none-any.whl.metadata (6.4 kB)
+#20 6.055 Collecting pandas==2.1.4 (from -r requirements.txt (line 3))
+#20 6.127   Downloading pandas-2.1.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+#20 7.148 Collecting numpy==1.26.3 (from -r requirements.txt (line 4))
+#20 7.223   Downloading numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+#20 7.298      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 958.1 kB/s eta 0:00:00
+#20 7.616 Collecting scikit-learn==1.4.0 (from -r requirements.txt (line 5))
+#20 7.699   Downloading scikit_learn-1.4.0-1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+#20 7.985 Collecting httpx==0.26.0 (from -r requirements.txt (line 6))
+#20 8.055   Downloading httpx-0.26.0-py3-none-any.whl.metadata (7.6 kB)
+#20 8.738 Collecting pydantic==2.5.3 (from -r requirements.txt (line 7))
+#20 8.820   Downloading pydantic-2.5.3-py3-none-any.whl.metadata (65 kB)
+#20 8.848      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 kB 2.4 MB/s eta 0:00:00
+#20 8.991 Collecting python-dotenv==1.0.0 (from -r requirements.txt (line 8))
+#20 9.073   Downloading python_dotenv-1.0.0-py3-none-any.whl.metadata (21 kB)
+#20 9.398 Collecting psycopg2-binary==2.9.9 (from -r requirements.txt (line 9))
+#20 9.486   Downloading psycopg2_binary-2.9.9-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.4 kB)
+#20 10.82 Collecting sqlalchemy==2.0.25 (from -r requirements.txt (line 10))
+#20 10.88   Downloading SQLAlchemy-2.0.25-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+#20 11.38 Collecting starlette<0.36.0,>=0.35.0 (from fastapi==0.109.0->-r requirements.txt (line 1))
+#20 11.46   Downloading starlette-0.35.1-py3-none-any.whl.metadata (5.8 kB)
+#20 11.60 Collecting typing-extensions>=4.8.0 (from fastapi==0.109.0->-r requirements.txt (line 1))
+#20 11.69   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#20 11.88 Collecting click>=7.0 (from uvicorn==0.27.0->uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 11.97   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+#20 12.06 Collecting h11>=0.8 (from uvicorn==0.27.0->uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 12.14   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#20 12.45 Collecting python-dateutil>=2.8.2 (from pandas==2.1.4->-r requirements.txt (line 3))
+#20 12.52   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#20 12.75 Collecting pytz>=2020.1 (from pandas==2.1.4->-r requirements.txt (line 3))
+#20 12.83   Downloading pytz-2026.1.post1-py2.py3-none-any.whl.metadata (22 kB)
+#20 12.95 Collecting tzdata>=2022.1 (from pandas==2.1.4->-r requirements.txt (line 3))
+#20 13.02   Downloading tzdata-2025.3-py2.py3-none-any.whl.metadata (1.4 kB)
+#20 13.79 Collecting scipy>=1.6.0 (from scikit-learn==1.4.0->-r requirements.txt (line 5))
+#20 13.87   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#20 13.88      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 12.0 MB/s eta 0:00:00
+#20 14.05 Collecting joblib>=1.2.0 (from scikit-learn==1.4.0->-r requirements.txt (line 5))
+#20 14.14   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+#20 14.30 Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.4.0->-r requirements.txt (line 5))
+#20 14.39   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+#20 14.58 Collecting anyio (from httpx==0.26.0->-r requirements.txt (line 6))
+#20 14.67   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#20 14.81 Collecting certifi (from httpx==0.26.0->-r requirements.txt (line 6))
+#20 14.87   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+#20 15.04 Collecting httpcore==1.* (from httpx==0.26.0->-r requirements.txt (line 6))
+#20 15.12   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#20 15.25 Collecting idna (from httpx==0.26.0->-r requirements.txt (line 6))
+#20 15.33   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#20 15.44 Collecting sniffio (from httpx==0.26.0->-r requirements.txt (line 6))
+#20 15.51   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+#20 15.64 Collecting annotated-types>=0.4.0 (from pydantic==2.5.3->-r requirements.txt (line 7))
+#20 15.73   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#20 18.38 Collecting pydantic-core==2.14.6 (from pydantic==2.5.3->-r requirements.txt (line 7))
+#20 18.45   Downloading pydantic_core-2.14.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
+#20 19.11 Collecting greenlet!=0.4.17 (from sqlalchemy==2.0.25->-r requirements.txt (line 10))
+#20 19.19   Downloading greenlet-3.3.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+#20 19.40 Collecting httptools>=0.5.0 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 19.47   Downloading httptools-0.7.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#20 19.67 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 19.74   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#20 19.97 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 20.05   Downloading uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+#20 20.40 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 20.48   Downloading watchfiles-1.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#20 20.89 Collecting websockets>=10.4 (from uvicorn[standard]==0.27.0->-r requirements.txt (line 2))
+#20 20.96   Downloading websockets-16.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+#20 21.26 Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.1.4->-r requirements.txt (line 3))
+#20 21.33   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#20 21.43 INFO: pip is looking at multiple versions of scipy to determine which version is compatible with other requirements. This could take a while.
+#20 21.45 Collecting scipy>=1.6.0 (from scikit-learn==1.4.0->-r requirements.txt (line 5))
+#20 21.52   Downloading scipy-1.17.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#20 21.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 3.2 MB/s eta 0:00:00
+#20 21.76   Downloading scipy-1.16.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (62 kB)
+#20 21.79      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 2.5 MB/s eta 0:00:00
+#20 ...
+
+#25 [frontend builder 5/5] RUN npm run build
+#25 21.90 Failed to compile.
+#25 21.90 
+#25 21.90 ./app/(dashboard)/dashboard/page.tsx
+#25 21.90 Module not found: Can't resolve '@/lib/utils'
+#25 21.90 
+#25 21.90 https://nextjs.org/docs/messages/module-not-found
+#25 21.90 
+#25 21.90 ./app/(dashboard)/layout.tsx
+#25 21.90 Module not found: Can't resolve '@/lib/utils'
+#25 21.90 
+#25 21.90 https://nextjs.org/docs/messages/module-not-found
+#25 21.90 
+#25 21.90 ./app/layout.tsx
+#25 21.90 Module not found: Can't resolve '@/components/providers/ThemeProvider'
+#25 21.90 
+#25 21.90 https://nextjs.org/docs/messages/module-not-found
+#25 21.90 
+#25 21.90 ./app/layout.tsx
+#25 21.90 Module not found: Can't resolve '@/components/ui/toaster'
+#25 21.90 
+#25 21.90 https://nextjs.org/docs/messages/module-not-found
+#25 21.90 
+#25 21.93 
+#25 21.93 > Build failed because of webpack errors
+#25 22.00 npm notice
+#25 22.00 npm notice New major version of npm available! 10.8.2 -> 11.11.0
+#25 22.00 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.0
+#25 22.00 npm notice To update run: npm install -g npm@11.11.0
+#25 22.00 npm notice
+#25 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+
+#20 [ai-engine 5/7] RUN pip install --no-cache-dir -r requirements.txt
+#20 CANCELED
+------
+ > [frontend builder 5/5] RUN npm run build:
+21.90 
+21.90 https://nextjs.org/docs/messages/module-not-found
+21.90 
+21.93 
+21.93 > Build failed because of webpack errors
+22.00 npm notice
+22.00 npm notice New major version of npm available! 10.8.2 -> 11.11.0
+22.00 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.0
+22.00 npm notice To update run: npm install -g npm@11.11.0
+22.00 npm notice
+------
+Dockerfile.frontend:14
+
+--------------------
+
+  12 |     ARG NEXT_PUBLIC_API_URL
+
+  13 |     ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
+  14 | >>> RUN npm run build
+
+  15 |     
+
+  16 |     # ─── Stage 3: runner ──────────────────────────
+
+--------------------
+
+target frontend: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+

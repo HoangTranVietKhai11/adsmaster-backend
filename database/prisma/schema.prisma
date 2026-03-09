@@ -1,0 +1,444 @@
+// ─────────────────────────────────────────────
+// AdsMaster-AI-SaaS — Prisma Schema
+// ─────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ───────────────────────────────────
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  USER
+}
+
+enum PlanType {
+  FREE
+  PRO
+  AGENCY
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  PAST_DUE
+  TRIALING
+}
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+enum CampaignObjective {
+  AWARENESS
+  TRAFFIC
+  ENGAGEMENT
+  LEADS
+  SALES
+  APP_PROMOTION
+}
+
+enum AdStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  REJECTED
+  ARCHIVED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  LOST
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+}
+
+enum AffiliateStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+}
+
+enum CommissionStatus {
+  PENDING
+  APPROVED
+  PAID
+}
+
+// ─── Models ──────────────────────────────────
+
+model Plan {
+  id          String   @id @default(cuid())
+  name        PlanType @unique
+  price       Float    @default(0)
+  stripePriceId String? @unique
+  maxCampaigns Int     @default(3)
+  maxAiCredits  Int    @default(10)
+  features    String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users         User[]
+  subscriptions Subscription[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(USER)
+  avatar       String?
+  planId       String?
+  plan         Plan?    @relation(fields: [planId], references: [id])
+  aiCredits    Int      @default(10)
+  isVerified   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  subscriptions     Subscription[]
+  payments          Payment[]
+  campaigns         Campaign[]
+  enrollments       Enrollment[]
+  lessonProgress    LessonProgress[]
+  analyticsReports  AnalyticsReport[]
+  aiRecommendations AiRecommendation[]
+  affiliate         Affiliate?
+  referrals         Referral[]         @relation("ReferredUser")
+  leads             Lead[]
+  notifications     Notification[]
+  crmInteractions   CrmInteraction[]
+
+  @@index([email])
+  @@index([planId])
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String
+  user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId               String
+  plan                 Plan               @relation(fields: [planId], references: [id])
+  stripeSubscriptionId String             @unique
+  stripeCustomerId     String
+  status               SubscriptionStatus @default(ACTIVE)
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean            @default(false)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  @@index([userId])
+  @@index([stripeSubscriptionId])
+}
+
+model Payment {
+  id              String        @id @default(cuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripePaymentId String        @unique
+  amount          Float
+  currency        String        @default("usd")
+  status          PaymentStatus @default(PENDING)
+  description     String?
+  createdAt       DateTime      @default(now())
+
+  @@index([userId])
+}
+
+// ─── Learning Platform ───────────────────────
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  thumbnail   String?
+  price       Float    @default(0)
+  isFree      Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  instructorId String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  modules     Module[]
+  enrollments Enrollment[]
+
+  @@index([isPublished])
+}
+
+model Module {
+  id        String   @id @default(cuid())
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title     String
+  order     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lessons Lesson[]
+
+  @@index([courseId])
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  moduleId    String
+  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title       String
+  content     String?
+  videoUrl    String?
+  duration    Int?     // in seconds
+  order       Int
+  isFree      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  progress LessonProgress[]
+
+  @@index([moduleId])
+}
+
+model Enrollment {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, courseId])
+  @@index([userId])
+  @@index([courseId])
+}
+
+model LessonProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId    String
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  completed   Boolean  @default(false)
+  watchedSecs Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+}
+
+// ─── Campaigns ───────────────────────────────
+
+model Campaign {
+  id           String            @id @default(cuid())
+  userId       String
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name         String
+  objective    CampaignObjective @default(TRAFFIC)
+  budget       Float
+  dailyBudget  Float?
+  startDate    DateTime?
+  endDate      DateTime?
+  status       CampaignStatus    @default(DRAFT)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  adSets AdSet[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model AdSet {
+  id           String   @id @default(cuid())
+  campaignId   String
+  campaign     Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  name         String
+  targeting    Json?    // audience targeting config
+  budget       Float?
+  bidStrategy  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  ads Ad[]
+
+  @@index([campaignId])
+}
+
+model Ad {
+  id          String   @id @default(cuid())
+  adSetId     String
+  adSet       AdSet    @relation(fields: [adSetId], references: [id], onDelete: Cascade)
+  name        String
+  headline    String?
+  primaryText String?
+  cta         String?
+  imageUrl    String?
+  videoUrl    String?
+  status      AdStatus @default(DRAFT)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  metrics          Metric[]
+  aiRecommendations AiRecommendation[]
+
+  @@index([adSetId])
+  @@index([status])
+}
+
+// ─── Analytics ───────────────────────────────
+
+model Metric {
+  id          String   @id @default(cuid())
+  adId        String
+  ad          Ad       @relation(fields: [adId], references: [id], onDelete: Cascade)
+  impressions Int      @default(0)
+  clicks      Int      @default(0)
+  ctr         Float    @default(0)
+  cpc         Float    @default(0)
+  cpa         Float    @default(0)
+  roas        Float    @default(0)
+  spend       Float    @default(0)
+  revenue     Float    @default(0)
+  conversions Int      @default(0)
+  reach       Int      @default(0)
+  frequency   Float    @default(0)
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@index([adId])
+  @@index([date])
+}
+
+model AnalyticsReport {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  data        Json
+  dateFrom    DateTime
+  dateTo      DateTime
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+}
+
+model AiRecommendation {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  adId        String?
+  ad          Ad?      @relation(fields: [adId], references: [id])
+  type        String   // e.g. "LOW_CTR", "HIGH_CPA", "CREATIVE_FATIGUE"
+  title       String
+  description String
+  severity    String   @default("INFO") // INFO, WARNING, CRITICAL
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([adId])
+}
+
+// ─── Affiliate ───────────────────────────────
+
+model Affiliate {
+  id             String          @id @default(cuid())
+  userId         String          @unique
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  code           String          @unique
+  status         AffiliateStatus @default(PENDING)
+  commissionRate Float           @default(0.30)
+  totalEarned    Float           @default(0)
+  totalPaid      Float           @default(0)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  referrals   Referral[]
+}
+
+model Referral {
+  id           String           @id @default(cuid())
+  affiliateId  String
+  affiliate    Affiliate        @relation(fields: [affiliateId], references: [id])
+  referredById String
+  referredBy   User             @relation("ReferredUser", fields: [referredById], references: [id])
+  amount       Float            @default(0)
+  commission   Float            @default(0)
+  status       CommissionStatus @default(PENDING)
+  createdAt    DateTime         @default(now())
+  paidAt       DateTime?
+
+  @@index([affiliateId])
+}
+
+// ─── CRM ─────────────────────────────────────
+
+model Lead {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  email     String?
+  phone     String?
+  company   String?
+  source    String?
+  status    LeadStatus @default(NEW)
+  notes     String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  interactions CrmInteraction[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model CrmInteraction {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String   // call, email, meeting, note
+  notes     String
+  createdAt DateTime @default(now())
+
+  @@index([leadId])
+}
+
+// ─── Notifications ───────────────────────────
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  type      String   // info, success, warning, error
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([isRead])
+}

@@ -1,0 +1,30 @@
+{
+  name: 'PrismaClientInitializationError',
+  clientVersion: '5.22.0',
+  errorCode: 'P1001',
+  level: 'error',
+  message: "Failed to start server: Can't reach database server at `adsmaster_postgres:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `adsmaster_postgres:5432`.',
+  stack: "PrismaClientInitializationError: Can't reach database server at `adsmaster_postgres:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `adsmaster_postgres:5432`.\n' +
+    '    at t (/home/khai/ads/adsmaster-ai-saas/backend/node_modules/@prisma/client/runtime/library.js:112:2488)\n' +
+    '    at main (/home/khai/ads/adsmaster-ai-saas/backend/src/index.ts:10:9)',
+  timestamp: '2026-03-07T07:59:26.159Z'
+}
+{
+  name: 'PrismaClientInitializationError',
+  clientVersion: '5.22.0',
+  errorCode: 'P1001',
+  level: 'error',
+  message: "Failed to start server: Can't reach database server at `adsmaster_postgres:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `adsmaster_postgres:5432`.',
+  stack: "PrismaClientInitializationError: Can't reach database server at `adsmaster_postgres:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `adsmaster_postgres:5432`.\n' +
+    '    at t (/home/khai/ads/adsmaster-ai-saas/backend/node_modules/@prisma/client/runtime/library.js:112:2488)\n' +
+    '    at main (/home/khai/ads/adsmaster-ai-saas/backend/src/index.ts:10:9)',
+  timestamp: '2026-03-09T00:09:03.673Z'
+}

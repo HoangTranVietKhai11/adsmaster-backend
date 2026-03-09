@@ -1,0 +1,120 @@
+services:
+  # ─── PostgreSQL ────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: adsmaster_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-adsmaster}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-adsmaster_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-adsmaster}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - adsmaster_net
+
+  # ─── Redis ─────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: adsmaster_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - adsmaster_net
+
+  # ─── Backend ───────────────────────────────────
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: adsmaster_backend
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-adsmaster}:${POSTGRES_PASSWORD:-secret}@postgres:5432/${POSTGRES_DB:-adsmaster_db}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      NODE_ENV: production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    networks:
+      - adsmaster_net
+
+  # ─── AI Engine ─────────────────────────────────
+  ai-engine:
+    build:
+      context: ../ai-engine
+      dockerfile: ../docker/Dockerfile.ai
+    container_name: adsmaster_ai
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-adsmaster}:${POSTGRES_PASSWORD:-secret}@postgres:5432/${POSTGRES_DB:-adsmaster_db}
+    ports:
+      - "8001:8000"
+    depends_on:
+      - postgres
+    networks:
+      - adsmaster_net
+
+  # ─── Frontend ──────────────────────────────────
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/Dockerfile.frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${API_URL:-http://localhost:4000}
+    container_name: adsmaster_frontend
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      PORT: 3000
+    ports:
+      - "3005:3000"
+    depends_on:
+      - backend
+    networks:
+      - adsmaster_net
+
+  # ─── Nginx ─────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: adsmaster_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+      - ai-engine
+    networks:
+      - adsmaster_net
+
+volumes:
+  postgres_data:
+  redis_data:
+
+
+networks:
+  adsmaster_net:
+    driver: bridge
