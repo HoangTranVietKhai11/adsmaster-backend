@@ -115,7 +115,7 @@ export async function generateReport(req: AuthRequest, res: Response, next: Next
             data: {
                 userId: req.user!.id,
                 title: title || `Report ${new Date().toLocaleDateString()}`,
-                data: { ...agg, ctr: agg.impressions > 0 ? (agg.clicks / agg.impressions) * 100 : 0, roas: agg.spend > 0 ? agg.revenue / agg.spend : 0 },
+                data: JSON.stringify({ ...agg, ctr: agg.impressions > 0 ? (agg.clicks / agg.impressions) * 100 : 0, roas: agg.spend > 0 ? agg.revenue / agg.spend : 0 }),
                 dateFrom: new Date(dateFrom),
                 dateTo: new Date(dateTo),
             },

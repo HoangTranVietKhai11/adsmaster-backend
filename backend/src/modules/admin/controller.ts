@@ -33,7 +33,7 @@ export async function listUsers(req: AuthRequest, res: Response, next: NextFunct
         const { page = 1, limit = 20, search } = req.query;
         const [users, total] = await Promise.all([
             prisma.user.findMany({
-                where: search ? { OR: [{ name: { contains: String(search), mode: "insensitive" } }, { email: { contains: String(search), mode: "insensitive" } }] } : {},
+                where: search ? { OR: [{ name: { contains: String(search) } }, { email: { contains: String(search) } }] } : {},
                 select: { id: true, name: true, email: true, role: true, isVerified: true, createdAt: true, plan: { select: { name: true } }, _count: { select: { campaigns: true } } },
                 skip: (Number(page) - 1) * Number(limit), take: Number(limit),
                 orderBy: { createdAt: "desc" },

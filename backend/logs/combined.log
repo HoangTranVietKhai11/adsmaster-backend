@@ -5971,3 +5971,63 @@
   level: 'warn',
   timestamp: '2026-03-13T16:19:46.345Z'
 }
+{
+  message: '⚠️  Redis not available — running without cache/session store',
+  level: 'warn',
+  timestamp: '2026-03-14T06:16:10.103Z'
+}
+{
+  message: '⚠️  Redis not available — running without cache/session store',
+  level: 'warn',
+  timestamp: '2026-03-14T06:16:10.103Z'
+}
+{
+  message: '✅ Database connected',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:10.111Z'
+}
+{
+  message: '✅ Database connected',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:10.111Z'
+}
+{
+  message: '🚀 Server running on port 4005',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:10.114Z'
+}
+{
+  message: '   Environment: development',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:10.114Z'
+}
+{
+  message: '   API: http://localhost:4005/api',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:10.114Z'
+}
+{
+  message: '✅ Database connected',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:11.485Z'
+}
+{
+  message: '🚀 Server running on port 4005',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:11.490Z'
+}
+{
+  message: '   Environment: development',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:11.490Z'
+}
+{
+  message: '   API: http://localhost:4005/api',
+  level: 'info',
+  timestamp: '2026-03-14T06:16:11.491Z'
+}
+{
+  message: '⚠️  Redis not available — running without cache/session store',
+  level: 'warn',
+  timestamp: '2026-03-14T06:16:11.495Z'
+}
