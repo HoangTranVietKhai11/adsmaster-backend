@@ -28,3 +28,3521 @@
     '    at main (/home/khai/ads/adsmaster-ai-saas/backend/src/index.ts:10:9)',
   timestamp: '2026-03-09T00:09:03.673Z'
 }
+{
+  name: 'PrismaClientInitializationError',
+  clientVersion: '5.22.0',
+  errorCode: 'P1001',
+  level: 'error',
+  message: "Failed to start server: Can't reach database server at `localhost:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `localhost:5432`.',
+  stack: "PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `localhost:5432`.\n' +
+    '    at t (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:112:2488)\n' +
+    '    at main (D:\\adsmaster\\backend\\src\\index.ts:15:9)',
+  timestamp: '2026-03-09T07:26:54.389Z'
+}
+{
+  stack: 'PrismaClientInitializationError: \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'Authentication failed against database server at `localhost`, the provided database credentials for `adsmaster` are not valid.\n' +
+    '\n' +
+    'Please make sure to provide valid database credentials for the database server at `localhost`.\n' +
+    '    at $n.handleRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7615)\n' +
+    '    at $n.handleAndLogRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6623)\n' +
+    '    at $n.request (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6307)\n' +
+    '    at l (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9633)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:26)',
+  code: undefined,
+  level: 'error',
+  message: '[500] \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'Authentication failed against database server at `localhost`, the provided database credentials for `adsmaster` are not valid.\n' +
+    '\n' +
+    'Please make sure to provide valid database credentials for the database server at `localhost`.',
+  timestamp: '2026-03-09T08:27:42.701Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 2,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 2 character(s)",\n' +
+    '    "path": [\n' +
+    '      "name"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:25:37)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 2,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 2 character(s)",\n' +
+    '    "path": [\n' +
+    '      "name"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-09T08:43:33.539Z'
+}
+{
+  stack: 'PrismaClientInitializationError: \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1\n' +
+    '    at $n.handleRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7615)\n' +
+    '    at $n.handleAndLogRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6623)\n' +
+    '    at $n.request (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6307)\n' +
+    '    at l (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9633)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:26)',
+  code: undefined,
+  level: 'error',
+  message: '[500] \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1',
+  timestamp: '2026-03-09T08:44:15.253Z'
+}
+{
+  stack: 'PrismaClientInitializationError: \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1\n' +
+    '    at $n.handleRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7615)\n' +
+    '    at $n.handleAndLogRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6623)\n' +
+    '    at $n.request (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6307)\n' +
+    '    at l (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9633)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:26)',
+  code: undefined,
+  level: 'error',
+  message: '[500] \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1',
+  timestamp: '2026-03-09T08:52:08.743Z'
+}
+{
+  stack: 'PrismaClientInitializationError: \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1\n' +
+    '    at $n.handleRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7615)\n' +
+    '    at $n.handleAndLogRequestError (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6623)\n' +
+    '    at $n.request (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6307)\n' +
+    '    at l (D:\\adsmaster\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9633)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:26)',
+  code: undefined,
+  level: 'error',
+  message: '[500] \n' +
+    'Invalid `prisma.user.findUnique()` invocation in\n' +
+    'D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:27:44\n' +
+    '\n' +
+    '  24 try {\n' +
+    '  25     const data = registerSchema.parse(req.body);\n' +
+    '  26 \n' +
+    '→ 27     const existing = await prisma.user.findUnique(\n' +
+    'error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.\n' +
+    '  -->  schema.prisma:7\n' +
+    '   | \n' +
+    ' 6 |   provider = "postgresql"\n' +
+    ' 7 |   url      = env("DATABASE_URL")\n' +
+    '   | \n' +
+    '\n' +
+    'Validation Error Count: 1',
+  timestamp: '2026-03-09T08:52:26.204Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 1,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 1 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:59:34)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 1,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 1 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-12T12:16:29.781Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:62:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T12:17:27.415Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 1,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 1 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:59:34)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 1,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 1 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-12T12:18:13.336Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 2,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 2 character(s)",\n' +
+    '    "path": [\n' +
+    '      "name"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:25:37)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 2,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 2 character(s)",\n' +
+    '    "path": [\n' +
+    '      "name"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-12T12:18:26.850Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:62:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T12:19:12.134Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:16.773Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:16.833Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:16.938Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:17.105Z'
+}
+{
+  stack: 'MaxRetriesPerRequestError: Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.\n' +
+    '    at Socket.<anonymous> (D:\\adsmaster\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:207:37)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at TCP.<anonymous> (node:net:346:12)',
+  code: undefined,
+  level: 'error',
+  message: '[500] Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.',
+  timestamp: '2026-03-12T12:20:17.107Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:17.314Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:17.571Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:17.876Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:18.231Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:18.640Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:19.103Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:19.611Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:20.167Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:20.777Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:21.440Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:22.150Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:22.909Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:23.714Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:24.575Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:25.492Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:26.452Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:27.466Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:28.520Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:29.631Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:30.786Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:31.996Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:33.255Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:34.563Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:35.922Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:37.332Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:38.790Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:40.294Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:41.860Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:43.463Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:45.121Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:46.832Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:48.590Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:50.394Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:52.254Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:54.162Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:56.123Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:20:58.130Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:00.144Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:02.151Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:04.164Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:06.172Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:08.178Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:10.197Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:12.207Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:14.213Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:16.220Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:18.227Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:20.238Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:22.243Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:24.248Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:26.264Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:28.276Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:30.285Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:32.289Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:34.304Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:36.309Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:38.324Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:40.327Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:42.338Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:44.345Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:46.360Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:48.368Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:50.379Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:52.386Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:54.401Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:56.414Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:21:58.420Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:00.427Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:02.444Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:04.449Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:06.454Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:08.472Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:10.487Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:12.497Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:14.508Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:16.529Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:18.540Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:20.548Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:22.560Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:24.573Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:26.579Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:28.589Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:30.601Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:32.609Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:34.626Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:36.634Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:38.640Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:40.648Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:42.657Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:44.662Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:46.675Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:48.684Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:50.697Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:52.712Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:54.724Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:56.731Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:22:58.747Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:00.761Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:02.770Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:04.789Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:06.802Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:08.821Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:10.837Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:12.842Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:14.857Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:16.864Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:18.874Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:20.890Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:22.897Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:24.904Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:26.921Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:28.933Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:30.938Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:32.956Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:34.959Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:36.968Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:38.973Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:40.981Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:42.989Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:45.005Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:47.010Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:49.025Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:51.038Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:53.057Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:55.069Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:57.086Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:23:59.091Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:01.094Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:03.097Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:05.104Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:07.114Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:09.125Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:11.133Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:13.148Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:15.157Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:17.172Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:19.181Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:21.193Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:23.211Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:25.230Z'
+}
+{
+  stack: 'MaxRetriesPerRequestError: Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.\n' +
+    '    at Socket.<anonymous> (D:\\adsmaster\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:207:37)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at TCP.<anonymous> (node:net:346:12)',
+  code: undefined,
+  level: 'error',
+  message: '[500] Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.',
+  timestamp: '2026-03-12T12:24:25.231Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:27.237Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:29.243Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:31.255Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:33.274Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:35.281Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:37.296Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:39.299Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:41.312Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:43.318Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:45.326Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:47.341Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:49.350Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:51.362Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:53.369Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:55.382Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:57.395Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:24:59.404Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:01.428Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:03.438Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:05.451Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:07.457Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:09.465Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:11.469Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:13.485Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:15.492Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:17.497Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:19.514Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:21.538Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:23.562Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:25.576Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:27.582Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:29.590Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:31.595Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:33.602Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:35.612Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:37.637Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:39.645Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:41.656Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:43.665Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:45.672Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:47.685Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:49.693Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:51.712Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:53.726Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:55.738Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:57.763Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:25:59.769Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:01.781Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:03.794Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:05.811Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:07.839Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:09.844Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:11.852Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:13.861Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:15.868Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:17.883Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:19.886Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:21.900Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:23.928Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:25.938Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:27.962Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:29.969Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:31.983Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:33.995Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:36.001Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:38.011Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:40.018Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:42.039Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:44.049Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:46.053Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:48.062Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:50.066Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:52.072Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:54.078Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:56.087Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:26:58.111Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:27:00.117Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.023Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.086Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.202Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.368Z'
+}
+{
+  stack: 'MaxRetriesPerRequestError: Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.\n' +
+    '    at Socket.<anonymous> (D:\\adsmaster\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:207:37)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at TCP.<anonymous> (node:net:346:12)',
+  code: undefined,
+  level: 'error',
+  message: '[500] Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.',
+  timestamp: '2026-03-12T12:42:28.372Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.589Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:28.859Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:29.168Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:29.529Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:29.932Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:30.387Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:30.897Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:31.460Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:32.071Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:32.731Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:33.444Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:34.209Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:35.024Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:35.886Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:36.793Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:37.752Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:38.758Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:39.821Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:40.925Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:42.083Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:43.298Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:44.566Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:45.868Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:47.230Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:48.640Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:50.099Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:51.616Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:53.178Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:54.783Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:56.439Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:58.147Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:42:59.911Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:01.724Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:03.577Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:05.481Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:07.443Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:09.461Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:11.467Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:13.480Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:15.493Z'
+}
+{
+  stack: 'MaxRetriesPerRequestError: Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.\n' +
+    '    at Socket.<anonymous> (D:\\adsmaster\\backend\\node_modules\\ioredis\\built\\redis\\event_handler.js:207:37)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at TCP.<anonymous> (node:net:346:12)',
+  code: undefined,
+  level: 'error',
+  message: '[500] Reached the max retries per request limit (which is 3). Refer to "maxRetriesPerRequest" option for details.',
+  timestamp: '2026-03-12T12:43:15.495Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:17.500Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:19.514Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:21.529Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:23.535Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:25.542Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:27.550Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:29.554Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:31.560Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:33.568Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:35.592Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:37.595Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:39.598Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:41.617Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:43.620Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:45.630Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:47.640Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:49.645Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:51.654Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:53.672Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:55.679Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:57.698Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:43:59.716Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:01.729Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:03.743Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:05.761Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:07.769Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:09.780Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:11.783Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:13.789Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:15.796Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:17.800Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:19.805Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:21.808Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:23.818Z'
+}
+{
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: 'Redis error:',
+  stack: 'AggregateError: \n' +
+    '    at internalConnectMultiple (node:net:1142:49)\n' +
+    '    at afterConnectMultiple (node:net:1723:7)',
+  timestamp: '2026-03-12T12:44:25.830Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:66:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T12:50:25.865Z'
+}
+{
+  stack: 'Error: 400 status code (no body)\n' +
+    '    at APIError.generate (D:\\adsmaster\\backend\\node_modules\\openai\\src\\error.ts:72:14)\n' +
+    '    at OpenAI.makeStatusError (D:\\adsmaster\\backend\\node_modules\\openai\\src\\core.ts:462:21)\n' +
+    '    at OpenAI.makeRequest (D:\\adsmaster\\backend\\node_modules\\openai\\src\\core.ts:526:24)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at generateAd (D:\\adsmaster\\backend\\src\\modules\\ai\\controller.ts:47:28)',
+  code: undefined,
+  level: 'error',
+  message: '[500] 400 status code (no body)',
+  timestamp: '2026-03-12T12:58:49.403Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T13:19:17.359Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:66:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T14:28:12.131Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:66:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T14:28:27.756Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:66:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T14:28:52.834Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:25:37)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-12T15:06:21.635Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T22:22:47.713Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T22:25:02.549Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-12T22:25:32.216Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at register (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:25:37)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "code": "too_small",\n' +
+    '    "minimum": 8,\n' +
+    '    "type": "string",\n' +
+    '    "inclusive": true,\n' +
+    '    "exact": false,\n' +
+    '    "message": "String must contain at least 8 character(s)",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "validation": "regex",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Password must contain uppercase, lowercase, and number",\n' +
+    '    "path": [\n' +
+    '      "password"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-12T22:38:19.595Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:63:34)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-13T08:07:30.647Z'
+}
+{
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:45:31)\n' +
+    '    at ZodObject.parse (D:\\adsmaster\\backend\\node_modules\\zod\\v3\\types.cjs:120:22)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:63:34)\n' +
+    '    at Layer.handle [as handle_request] (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (D:\\adsmaster\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:807:7\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at D:\\adsmaster\\backend\\node_modules\\express-rate-limit\\dist\\index.cjs:691:5',
+  code: undefined,
+  level: 'error',
+  message: '[500] [\n' +
+    '  {\n' +
+    '    "validation": "email",\n' +
+    '    "code": "invalid_string",\n' +
+    '    "message": "Invalid email",\n' +
+    '    "path": [\n' +
+    '      "email"\n' +
+    '    ]\n' +
+    '  }\n' +
+    ']',
+  timestamp: '2026-03-13T08:08:49.828Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-13T08:09:58.446Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:66:37)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-13T08:22:14.437Z'
+}
+{
+  stack: 'Error: Invalid credentials\n' +
+    '    at createError (D:\\adsmaster\\backend\\src\\middlewares\\errorHandler.ts:31:29)\n' +
+    '    at login (D:\\adsmaster\\backend\\src\\modules\\auth\\controller.ts:69:38)',
+  code: undefined,
+  level: 'error',
+  message: '[401] Invalid credentials',
+  timestamp: '2026-03-13T15:31:01.420Z'
+}

@@ -1,187 +1,103 @@
-// ─────────────────────────────────────────────
-// AdsMaster-AI-SaaS — Prisma Schema
-// ─────────────────────────────────────────────
-
 generator client {
   provider = "prisma-client-js"
   output   = "../../node_modules/.prisma/client"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
-// ─── Enums ───────────────────────────────────
-
-enum Role {
-  ADMIN
-  INSTRUCTOR
-  USER
-}
-
-enum PlanType {
-  FREE
-  PRO
-  AGENCY
-}
-
-enum SubscriptionStatus {
-  ACTIVE
-  CANCELLED
-  PAST_DUE
-  TRIALING
-}
-
-enum CampaignStatus {
-  DRAFT
-  ACTIVE
-  PAUSED
-  COMPLETED
-  ARCHIVED
-}
-
-enum CampaignObjective {
-  AWARENESS
-  TRAFFIC
-  ENGAGEMENT
-  LEADS
-  SALES
-  APP_PROMOTION
-}
-
-enum AdStatus {
-  DRAFT
-  ACTIVE
-  PAUSED
-  REJECTED
-  ARCHIVED
-}
-
-enum LeadStatus {
-  NEW
-  CONTACTED
-  QUALIFIED
-  CONVERTED
-  LOST
-}
-
-enum PaymentStatus {
-  PENDING
-  SUCCEEDED
-  FAILED
-  REFUNDED
-}
-
-enum AffiliateStatus {
-  PENDING
-  ACTIVE
-  SUSPENDED
-}
-
-enum CommissionStatus {
-  PENDING
-  APPROVED
-  PAID
-}
-
-// ─── Models ──────────────────────────────────
-
 model Plan {
-  id          String   @id @default(cuid())
-  name        PlanType @unique
-  price       Float    @default(0)
-  stripePriceId String? @unique
-  maxCampaigns Int     @default(3)
-  maxAiCredits  Int    @default(10)
-  features    String[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  users         User[]
+  id            String         @id @default(cuid())
+  name          String         @unique
+  price         Float          @default(0)
+  stripePriceId String?        @unique
+  maxCampaigns  Int            @default(3)
+  maxAiCredits  Int            @default(10)
+  features      String         @default("[]")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
   subscriptions Subscription[]
+  users         User[]
 }
 
 model User {
-  id           String   @id @default(cuid())
-  name         String
-  email        String   @unique
-  passwordHash String
-  role         Role     @default(USER)
-  avatar       String?
-  planId       String?
-  plan         Plan?    @relation(fields: [planId], references: [id])
-  aiCredits    Int      @default(10)
-  isVerified   Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  subscriptions     Subscription[]
-  payments          Payment[]
-  campaigns         Campaign[]
-  enrollments       Enrollment[]
-  lessonProgress    LessonProgress[]
-  analyticsReports  AnalyticsReport[]
-  aiRecommendations AiRecommendation[]
+  id                String             @id @default(cuid())
+  name              String
+  email             String             @unique
+  passwordHash      String
+  role              String             @default("USER")
+  avatar            String?
+  planId            String?
+  aiCredits         Int                @default(10)
+  isVerified        Boolean            @default(false)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
   affiliate         Affiliate?
-  referrals         Referral[]         @relation("ReferredUser")
-  leads             Lead[]
-  notifications     Notification[]
+  aiRecommendations AiRecommendation[]
+  analyticsReports  AnalyticsReport[]
+  campaigns         Campaign[]
   crmInteractions   CrmInteraction[]
+  enrollments       Enrollment[]
+  leads             Lead[]
+  lessonProgress    LessonProgress[]
+  notifications     Notification[]
+  payments          Payment[]
+  referrals         Referral[]         @relation("ReferredUser")
+  subscriptions     Subscription[]
+  plan              Plan?              @relation(fields: [planId], references: [id])
 
   @@index([email])
   @@index([planId])
 }
 
 model Subscription {
-  id                   String             @id @default(cuid())
+  id                   String   @id @default(cuid())
   userId               String
-  user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   planId               String
-  plan                 Plan               @relation(fields: [planId], references: [id])
-  stripeSubscriptionId String             @unique
+  stripeSubscriptionId String   @unique
   stripeCustomerId     String
-  status               SubscriptionStatus @default(ACTIVE)
+  status               String   @default("ACTIVE")
   currentPeriodStart   DateTime
   currentPeriodEnd     DateTime
-  cancelAtPeriodEnd    Boolean            @default(false)
-  createdAt            DateTime           @default(now())
-  updatedAt            DateTime           @updatedAt
+  cancelAtPeriodEnd    Boolean  @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  plan                 Plan     @relation(fields: [planId], references: [id])
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([stripeSubscriptionId])
 }
 
 model Payment {
-  id              String        @id @default(cuid())
+  id              String   @id @default(cuid())
   userId          String
-  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  stripePaymentId String        @unique
+  stripePaymentId String   @unique
   amount          Float
-  currency        String        @default("usd")
-  status          PaymentStatus @default(PENDING)
+  currency        String   @default("usd")
+  status          String   @default("PENDING")
   description     String?
-  createdAt       DateTime      @default(now())
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
 
-// ─── Learning Platform ───────────────────────
-
 model Course {
-  id          String   @id @default(cuid())
-  title       String
-  description String
-  thumbnail   String?
-  price       Float    @default(0)
-  isFree      Boolean  @default(false)
-  isPublished Boolean  @default(false)
+  id           String       @id @default(cuid())
+  title        String
+  description  String
+  thumbnail    String?
+  price        Float        @default(0)
+  isFree       Boolean      @default(false)
+  isPublished  Boolean      @default(false)
   instructorId String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  modules     Module[]
-  enrollments Enrollment[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  enrollments  Enrollment[]
+  modules      Module[]
 
   @@index([isPublished])
 }
@@ -189,43 +105,41 @@ model Course {
 model Module {
   id        String   @id @default(cuid())
   courseId  String
-  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   title     String
   order     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  lessons Lesson[]
+  lessons   Lesson[]
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   @@index([courseId])
 }
 
 model Lesson {
-  id          String   @id @default(cuid())
-  moduleId    String
-  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  title       String
-  content     String?
-  videoUrl    String?
-  duration    Int?     // in seconds
-  order       Int
-  isFree      Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  progress LessonProgress[]
+  id        String           @id @default(cuid())
+  moduleId  String
+  title     String
+  content   String?
+  videoUrl  String?
+  duration  Int?
+  order     Int
+  isFree    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  module    Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress  LessonProgress[]
 
   @@index([moduleId])
 }
 
 model Enrollment {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   courseId    String
-  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   completedAt DateTime?
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  course      Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, courseId])
   @@index([userId])
@@ -235,82 +149,74 @@ model Enrollment {
 model LessonProgress {
   id          String   @id @default(cuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   lessonId    String
-  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   completed   Boolean  @default(false)
   watchedSecs Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, lessonId])
 }
 
-// ─── Campaigns ───────────────────────────────
-
 model Campaign {
-  id           String            @id @default(cuid())
-  userId       String
-  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name         String
-  objective    CampaignObjective @default(TRAFFIC)
-  budget       Float
-  dailyBudget  Float?
-  startDate    DateTime?
-  endDate      DateTime?
-  status       CampaignStatus    @default(DRAFT)
-  createdAt    DateTime          @default(now())
-  updatedAt    DateTime          @updatedAt
-
-  adSets AdSet[]
+  id          String    @id @default(cuid())
+  userId      String
+  name        String
+  objective   String    @default("TRAFFIC")
+  budget      Float
+  dailyBudget Float?
+  startDate   DateTime?
+  endDate     DateTime?
+  status      String    @default("DRAFT")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  adSets      AdSet[]
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([status])
 }
 
 model AdSet {
-  id           String   @id @default(cuid())
-  campaignId   String
-  campaign     Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
-  name         String
-  targeting    Json?    // audience targeting config
-  budget       Float?
-  bidStrategy  String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  ads Ad[]
+  id          String   @id @default(cuid())
+  campaignId  String
+  name        String
+  targeting   String?  @default("{}")
+  budget      Float?
+  bidStrategy String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  ads         Ad[]
+  campaign    Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
 
   @@index([campaignId])
 }
 
 model Ad {
-  id          String   @id @default(cuid())
-  adSetId     String
-  adSet       AdSet    @relation(fields: [adSetId], references: [id], onDelete: Cascade)
-  name        String
-  headline    String?
-  primaryText String?
-  cta         String?
-  imageUrl    String?
-  videoUrl    String?
-  status      AdStatus @default(DRAFT)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  metrics          Metric[]
+  id                String             @id @default(cuid())
+  adSetId           String
+  name              String
+  headline          String?
+  primaryText       String?
+  cta               String?
+  imageUrl          String?
+  videoUrl          String?
+  status            String             @default("DRAFT")
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  adSet             AdSet              @relation(fields: [adSetId], references: [id], onDelete: Cascade)
   aiRecommendations AiRecommendation[]
+  metrics           Metric[]
 
   @@index([adSetId])
   @@index([status])
 }
 
-// ─── Analytics ───────────────────────────────
-
 model Metric {
   id          String   @id @default(cuid())
   adId        String
-  ad          Ad       @relation(fields: [adId], references: [id], onDelete: Cascade)
   impressions Int      @default(0)
   clicks      Int      @default(0)
   ctr         Float    @default(0)
@@ -324,20 +230,21 @@ model Metric {
   frequency   Float    @default(0)
   date        DateTime @default(now())
   createdAt   DateTime @default(now())
+  ad          Ad       @relation(fields: [adId], references: [id], onDelete: Cascade)
 
   @@index([adId])
   @@index([date])
 }
 
 model AnalyticsReport {
-  id          String   @id @default(cuid())
-  userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  title       String
-  data        Json
-  dateFrom    DateTime
-  dateTo      DateTime
-  createdAt   DateTime @default(now())
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  data      String   @default("{}")
+  dateFrom  DateTime
+  dateTo    DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
@@ -345,69 +252,63 @@ model AnalyticsReport {
 model AiRecommendation {
   id          String   @id @default(cuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id])
   adId        String?
-  ad          Ad?      @relation(fields: [adId], references: [id])
-  type        String   // e.g. "LOW_CTR", "HIGH_CPA", "CREATIVE_FATIGUE"
+  type        String
   title       String
   description String
-  severity    String   @default("INFO") // INFO, WARNING, CRITICAL
+  severity    String   @default("INFO")
   isRead      Boolean  @default(false)
   createdAt   DateTime @default(now())
+  ad          Ad?      @relation(fields: [adId], references: [id])
+  user        User     @relation(fields: [userId], references: [id])
 
   @@index([userId])
   @@index([adId])
 }
 
-// ─── Affiliate ───────────────────────────────
-
 model Affiliate {
-  id             String          @id @default(cuid())
-  userId         String          @unique
-  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  code           String          @unique
-  status         AffiliateStatus @default(PENDING)
-  commissionRate Float           @default(0.30)
-  totalEarned    Float           @default(0)
-  totalPaid      Float           @default(0)
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-
-  referrals   Referral[]
+  id             String     @id @default(cuid())
+  userId         String     @unique
+  code           String     @unique
+  status         String     @default("PENDING")
+  commissionRate Float      @default(0.30)
+  totalEarned    Float      @default(0)
+  totalPaid      Float      @default(0)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  referrals      Referral[]
 }
 
 model Referral {
-  id           String           @id @default(cuid())
+  id           String    @id @default(cuid())
   affiliateId  String
-  affiliate    Affiliate        @relation(fields: [affiliateId], references: [id])
   referredById String
-  referredBy   User             @relation("ReferredUser", fields: [referredById], references: [id])
-  amount       Float            @default(0)
-  commission   Float            @default(0)
-  status       CommissionStatus @default(PENDING)
-  createdAt    DateTime         @default(now())
+  amount       Float     @default(0)
+  commission   Float     @default(0)
+  status       String    @default("PENDING")
+  createdAt    DateTime  @default(now())
   paidAt       DateTime?
+  referredBy   User      @relation("ReferredUser", fields: [referredById], references: [id])
+  affiliate    Affiliate @relation(fields: [affiliateId], references: [id])
 
   @@index([affiliateId])
 }
 
-// ─── CRM ─────────────────────────────────────
-
 model Lead {
-  id        String     @id @default(cuid())
-  userId    String
-  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name      String
-  email     String?
-  phone     String?
-  company   String?
-  source    String?
-  status    LeadStatus @default(NEW)
-  notes     String?
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-
+  id           String           @id @default(cuid())
+  userId       String
+  name         String
+  email        String?
+  phone        String?
+  company      String?
+  source       String?
+  status       String           @default("NEW")
+  notes        String?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
   interactions CrmInteraction[]
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([status])
@@ -416,28 +317,26 @@ model Lead {
 model CrmInteraction {
   id        String   @id @default(cuid())
   leadId    String
-  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  type      String   // call, email, meeting, note
+  type      String
   notes     String
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
   @@index([leadId])
 }
 
-// ─── Notifications ───────────────────────────
-
 model Notification {
   id        String   @id @default(cuid())
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   title     String
   body      String
-  type      String   // info, success, warning, error
+  type      String
   isRead    Boolean  @default(false)
   link      String?
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([isRead])

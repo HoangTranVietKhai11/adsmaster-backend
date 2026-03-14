@@ -1,4 +1,4 @@
-// File: /home/khai/ads/adsmaster-ai-saas/frontend/app/(dashboard)/dashboard/page.tsx
+// File: D:\adsmaster\frontend\app\(dashboard)\dashboard\page.tsx
 import * as entry from '../../../../../app/(dashboard)/dashboard/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

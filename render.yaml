@@ -1,0 +1,33 @@
+services:
+  # ─── Backend API (Node.js) ─────────────────────────────────────────────────
+  - type: web
+    name: adsmaster-backend
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npx prisma generate --schema=../database/prisma/schema.prisma && npm run build
+    startCommand: node dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DATABASE_URL
+        value: file:./prod.db
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_EXPIRY
+        value: 15m
+      - key: JWT_REFRESH_EXPIRY
+        value: 7d
+      - key: OPENAI_API_KEY
+        sync: false          # nhập thủ công trên dashboard Render
+      - key: OPENAI_MODEL
+        value: gemini-2.0-flash
+      - key: AFFILIATE_COMMISSION_RATE
+        value: "0.30"
+      - key: FRONTEND_URL
+        sync: false          # điền URL Vercel sau khi deploy xong

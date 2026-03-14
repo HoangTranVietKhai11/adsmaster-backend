@@ -7,13 +7,14 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "AdsMaster AI — Learn, Build, Analyze & Scale Facebook Ads",
+    metadataBase: new URL("http://localhost:3000"),
+    title: "AdsMaster AI — Học tập, Xây dựng, Phân tích & Quy mô Quảng cáo Facebook",
     description:
-        "The AI-powered Marketing SaaS Platform for Facebook Ads. Learn from expert courses, build campaigns with AI assistance, and scale with data-driven insights.",
-    keywords: "Facebook Ads, AI Marketing, Campaign Builder, Ad Analytics, Social Media Marketing",
+        "Nền tang SaaS Marketing hỗ trợ bởi AI cho Quảng cáo Facebook. Học từ các khóa học chuyên gia, xây dựng chiến dịch với trợ lý AI và mở rộng quy mô với dữ liệu thực tế.",
+    keywords: "Facebook Ads, AI Marketing, Campaign Builder, Ad Analytics, Social Media Marketing, Quảng cáo Facebook, AI Marketing Tiếng Việt",
     openGraph: {
         title: "AdsMaster AI",
-        description: "Learn, Build, Analyze and Scale Facebook Ads with AI.",
+        description: "Học tập, Xây dựng, Phân tích và Quy mô Quảng cáo Facebook với AI.",
         type: "website",
     },
 };

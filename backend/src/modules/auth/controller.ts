@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import bcrypt from "bcrypt";
 import { z } from "zod";
 import { prisma } from "../../config/database";
-import { redis } from "../../config/redis";
+import { redis, isRedisAvailable } from "../../config/redis";
 import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from "../../utils/jwt";
 import { createError } from "../../middlewares/errorHandler";
 import { AuthRequest } from "../../middlewares/auth";
@@ -30,7 +30,7 @@ export async function register(req: Request, res: Response, next: NextFunction):
         }
 
         const freePlan = await prisma.plan.findUnique({ where: { name: "FREE" } });
-        const passwordHash = await bcrypt.hash(data.password, 12);
+        const passwordHash = await bcrypt.hash(data.password, 10);
 
         const user = await prisma.user.create({
             data: {
@@ -46,7 +46,11 @@ export async function register(req: Request, res: Response, next: NextFunction):
         const accessToken = generateAccessToken({ userId: user.id, email: user.email, role: user.role });
         const refreshToken = generateRefreshToken(user.id);
 
-        await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, refreshToken);
+        try {
+            if (isRedisAvailable()) {
+                await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, refreshToken);
+            }
+        } catch { /* Redis unavailable, skip token storage */ }
 
         res.status(201).json({ success: true, data: { user, accessToken, refreshToken } });
     } catch (err) {
@@ -67,7 +71,11 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
         const accessToken = generateAccessToken({ userId: user.id, email: user.email, role: user.role });
         const refreshToken = generateRefreshToken(user.id);
 
-        await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, refreshToken);
+        try {
+            if (isRedisAvailable()) {
+                await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, refreshToken);
+            }
+        } catch { /* Redis unavailable, skip token storage */ }
 
         res.json({
             success: true,
@@ -88,9 +96,17 @@ export async function refresh(req: Request, res: Response, next: NextFunction): 
         if (!refreshToken) throw createError("Refresh token required", 400);
 
         const payload = verifyRefreshToken(refreshToken);
-        const stored = await redis.get(`refresh:${payload.userId}`);
 
-        if (!stored || stored !== refreshToken) throw createError("Invalid refresh token", 401);
+        // If Redis is available, validate stored token; otherwise just verify JWT signature
+        if (isRedisAvailable()) {
+            try {
+                const stored = await redis.get(`refresh:${payload.userId}`);
+                if (!stored || stored !== refreshToken) throw createError("Invalid refresh token", 401);
+            } catch (redisErr: any) {
+                if (redisErr?.status === 401) throw redisErr;
+                // Redis error, fall through to JWT-only validation
+            }
+        }
 
         const user = await prisma.user.findUnique({ where: { id: payload.userId } });
         if (!user) throw createError("User not found", 401);
@@ -98,7 +114,11 @@ export async function refresh(req: Request, res: Response, next: NextFunction): 
         const newAccessToken = generateAccessToken({ userId: user.id, email: user.email, role: user.role });
         const newRefreshToken = generateRefreshToken(user.id);
 
-        await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, newRefreshToken);
+        try {
+            if (isRedisAvailable()) {
+                await redis.setex(`refresh:${user.id}`, 7 * 24 * 60 * 60, newRefreshToken);
+            }
+        } catch { /* Redis unavailable */ }
 
         res.json({ success: true, data: { accessToken: newAccessToken, refreshToken: newRefreshToken } });
     } catch (err) {
@@ -108,7 +128,9 @@ export async function refresh(req: Request, res: Response, next: NextFunction): 
 
 export async function logout(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-        if (req.user?.id) await redis.del(`refresh:${req.user.id}`);
+        if (req.user?.id && isRedisAvailable()) {
+            try { await redis.del(`refresh:${req.user.id}`); } catch { /* ignore */ }
+        }
         res.json({ success: true, message: "Logged out" });
     } catch (err) {
         next(err);

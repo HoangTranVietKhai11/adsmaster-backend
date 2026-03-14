@@ -7,23 +7,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
     LayoutDashboard, Megaphone, BarChart3, Sparkles, BookOpen,
     Users, CreditCard, Settings, Bell, ChevronLeft, ChevronRight,
-    Zap, LogOut, User, UserCheck, Menu, X,
+    Zap, LogOut, User, UserCheck, Menu, X, Gamepad2, HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import FloatingAssistant from "@/components/FloatingAssistant";
+import { API_BASE_URL } from "@/lib/api";
 
 const navItems = [
-    { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
-    { icon: Megaphone, label: "Campaigns", href: "/campaigns" },
-    { icon: BarChart3, label: "Analytics", href: "/analytics" },
-    { icon: Sparkles, label: "AI Generator", href: "/ai-generator" },
-    { icon: BookOpen, label: "Courses", href: "/courses" },
-    { icon: UserCheck, label: "Affiliate", href: "/affiliate" },
-    { icon: Users, label: "CRM", href: "/crm" },
-    { icon: CreditCard, label: "Billing", href: "/billing" },
+    { icon: LayoutDashboard, label: "Tổng quan", href: "/dashboard" },
+    { icon: Megaphone, label: "Chiến dịch", href: "/campaigns" },
+    { icon: BarChart3, label: "Thống kê", href: "/analytics" },
+    { icon: Sparkles, label: "AI Tạo Quảng Cáo", href: "/ai-generator" },
+    { icon: BookOpen, label: "Khóa học", href: "/courses" },
+    { icon: Users, label: "Dữ liệu Khách hàng", href: "/crm" },
+    { icon: Gamepad2, label: "🎮 Phòng Tập (Free)", href: "/sandbox" },
+    { icon: HelpCircle, label: "📚 Hướng dẫn A-Z", href: "/guide" },
 ];
 
 const adminItems = [
-    { icon: Settings, label: "Admin Panel", href: "/admin" },
+    { icon: Settings, label: "Quản trị viên", href: "/admin" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -40,7 +42,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         if (!token || !stored) { router.push("/login"); return; }
         setUser(JSON.parse(stored));
         // Fetch notification count
-        fetch("/api/notifications", { headers: { Authorization: `Bearer ${token}` } })
+        fetch(`${API_BASE_URL}/api/notifications`, { headers: { Authorization: `Bearer ${token}` } })
             .then((r) => r.json())
             .then((d) => setNotifications(d.unreadCount || 0))
             .catch(() => { });
@@ -114,7 +116,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 {user?.role === "ADMIN" && (
                     <>
                         <div className={cn("px-3 py-1.5 mt-4", collapsed && !mobile ? "hidden" : "block")}>
-                            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Admin</span>
+                            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phân quyền Admin</span>
                         </div>
                         {adminItems.map((item) => {
                             const active = pathname === item.href;
@@ -221,6 +223,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     </motion.div>
                 </main>
             </div>
+            <FloatingAssistant />
         </div>
     );
 }

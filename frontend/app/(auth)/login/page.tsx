@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Zap, ArrowRight, Loader2 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -19,14 +20,14 @@ export default function LoginPage() {
         setError("");
 
         try {
-            const res = await fetch("/api/auth/login", {
+            const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
             });
             const data = await res.json();
 
-            if (!res.ok) throw new Error(data.error || "Login failed");
+            if (!res.ok) throw new Error(data.error || "Đăng nhập thất bại");
 
             localStorage.setItem("accessToken", data.data.accessToken);
             localStorage.setItem("refreshToken", data.data.refreshToken);
@@ -64,7 +65,7 @@ export default function LoginPage() {
                             Ads<span className="gradient-text">Master</span> AI
                         </span>
                     </Link>
-                    <p className="text-gray-400 mt-2 text-sm">Welcome back! Sign in to your account</p>
+                    <p className="text-gray-400 mt-2 text-sm">Chào mừng trở lại! Đăng nhập vào tài khoản của bạn</p>
                 </div>
 
                 {/* Card */}
@@ -94,7 +95,7 @@ export default function LoginPage() {
                         </div>
 
                         <div>
-                            <label className="text-sm font-medium text-gray-300 block mb-1.5">Password</label>
+                            <label className="text-sm font-medium text-gray-300 block mb-1.5">Mật khẩu</label>
                             <div className="relative">
                                 <input
                                     type={showPassword ? "text" : "password"}
@@ -121,16 +122,16 @@ export default function LoginPage() {
                             className="btn-primary w-full flex items-center justify-center gap-2"
                         >
                             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
-                            {loading ? "Signing in..." : "Sign In"}
+                            {loading ? "Đang đăng nhập..." : "Đăng Nhập"}
                             {!loading && <ArrowRight className="w-4 h-4" />}
                         </button>
                     </form>
 
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-400">
-                            Don&apos;t have an account?{" "}
+                            Chưa có tài khoản?{" "}
                             <Link href="/register" className="text-brand-400 hover:text-brand-300 font-medium transition-colors">
-                                Create one free
+                                Tạo tài khoản miễn phí
                             </Link>
                         </p>
                     </div>
@@ -138,7 +139,7 @@ export default function LoginPage() {
                     {/* Demo login hint */}
                     <div className="mt-4 p-3 bg-brand-500/10 border border-brand-500/20 rounded-lg">
                         <p className="text-xs text-brand-300 text-center">
-                            Demo: <span className="font-mono">demo@adsmaster.ai</span> / <span className="font-mono">Demo@12345</span>
+                            Tài khoản mẫu: <span className="font-mono">demo@adsmaster.ai</span> / <span className="font-mono">Demo@12345</span>
                         </p>
                     </div>
                 </div>

@@ -1,6 +1,10 @@
 node_modules
 .env
+.env.local
 .next
 dist
 build
-node_modules
+*.db
+*.db-journal
+ai-engine/venv
+logs/*.log

@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Zap, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 const benefits = [
-    "10 Free AI Credits monthly",
-    "3 Campaign builder slots",
-    "Basic analytics dashboard",
-    "Community support",
+    "10 tín dụng AI miễn phí mỗi tháng",
+    "Trình tạo 3 chiến dịch miễn phí",
+    "Bảng điều khiển phân tích cơ bản",
+    "Hỗ trợ qua cộng đồng",
 ];
 
 export default function RegisterPage() {
@@ -26,13 +27,13 @@ export default function RegisterPage() {
         setError("");
 
         try {
-            const res = await fetch("/api/auth/register", {
+            const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
             });
             const data = await res.json();
-            if (!res.ok) throw new Error(data.error || "Registration failed");
+            if (!res.ok) throw new Error(data.error || "Đăng ký thất bại");
 
             localStorage.setItem("accessToken", data.data.accessToken);
             localStorage.setItem("refreshToken", data.data.refreshToken);
@@ -71,11 +72,11 @@ export default function RegisterPage() {
                                 </span>
                             </Link>
                             <h2 className="mt-6 text-3xl font-bold text-white leading-tight">
-                                Start scaling your<br />
-                                <span className="gradient-text">Facebook Ads with AI</span>
+                                Bắt đầu mở rộng quy mô<br />
+                                <span className="gradient-text">Facebook Ads với AI</span>
                             </h2>
                             <p className="mt-3 text-gray-400">
-                                Join thousands of marketers using AI to create, optimize, and scale winning Facebook ad campaigns.
+                                Tham gia cùng hàng nghìn nhà quảng cáo sử dụng AI để tạo, tối ưu hóa và mở rộng các chiến dịch Facebook Ads hiệu quả.
                             </p>
                         </div>
                         <div className="space-y-3">
@@ -105,8 +106,8 @@ export default function RegisterPage() {
                     </div>
 
                     <div className="glass-card rounded-2xl p-8">
-                        <h3 className="text-xl font-bold text-white mb-1">Create your account</h3>
-                        <p className="text-gray-400 text-sm mb-6">Free forever. No credit card required.</p>
+                        <h3 className="text-xl font-bold text-white mb-1">Tạo tài khoản mới</h3>
+                        <p className="text-gray-400 text-sm mb-6">Miễn phí vĩnh viễn. Không cần thẻ tín dụng.</p>
 
                         {error && (
                             <div className="bg-destructive/15 border border-destructive/30 rounded-lg px-4 py-3 text-sm text-destructive mb-6">
@@ -116,7 +117,7 @@ export default function RegisterPage() {
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <label className="text-sm font-medium text-gray-300 block mb-1.5">Full Name</label>
+                                <label className="text-sm font-medium text-gray-300 block mb-1.5">Họ và Tên</label>
                                 <input
                                     value={form.name}
                                     onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -137,13 +138,13 @@ export default function RegisterPage() {
                                 />
                             </div>
                             <div>
-                                <label className="text-sm font-medium text-gray-300 block mb-1.5">Password</label>
+                                <label className="text-sm font-medium text-gray-300 block mb-1.5">Mật khẩu</label>
                                 <div className="relative">
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         value={form.password}
                                         onChange={(e) => setForm({ ...form, password: e.target.value })}
-                                        placeholder="Min 8 chars, uppercase & number"
+                                        placeholder="Tối thiểu 8 ký tự, có chữ hoa và số"
                                         required
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all pr-12"
                                     />
@@ -154,14 +155,14 @@ export default function RegisterPage() {
                             </div>
                             <button type="submit" disabled={loading} className="btn-primary w-full flex items-center justify-center gap-2 mt-2">
                                 {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
-                                {loading ? "Creating account..." : "Create Free Account"}
+                                {loading ? "Đang tạo..." : "Tạo Tài Khoản Điễn Phí"}
                                 {!loading && <ArrowRight className="w-4 h-4" />}
                             </button>
                         </form>
 
                         <p className="text-center text-sm text-gray-400 mt-6">
-                            Already have an account?{" "}
-                            <Link href="/login" className="text-brand-400 hover:text-brand-300 font-medium transition-colors">Sign in</Link>
+                            Đã có tài khoản?{" "}
+                            <Link href="/login" className="text-brand-400 hover:text-brand-300 font-medium transition-colors">Đăng nhập</Link>
                         </p>
                     </div>
                 </motion.div>

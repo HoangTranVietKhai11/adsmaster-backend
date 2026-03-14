@@ -1,5 +1,5 @@
-import { PrismaClient, Role, PlanType } from "@prisma/client";
-import * as bcrypt from "bcrypt";
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -8,52 +8,52 @@ async function main() {
 
   // Plans
   const freePlan = await prisma.plan.upsert({
-    where: { name: PlanType.FREE },
+    where: { name: "FREE" },
     update: {},
     create: {
-      name: PlanType.FREE,
+      name: "FREE",
       price: 0,
       maxCampaigns: 3,
       maxAiCredits: 10,
-      features: ["3 Campaigns", "10 AI Credits/month", "Basic Analytics", "Community Support"],
+      features: JSON.stringify(["3 Campaigns", "10 AI Credits/month", "Basic Analytics", "Community Support"]),
     },
   });
 
   const proPlan = await prisma.plan.upsert({
-    where: { name: PlanType.PRO },
+    where: { name: "PRO" },
     update: {},
     create: {
-      name: PlanType.PRO,
+      name: "PRO",
       price: 19,
       maxCampaigns: 20,
       maxAiCredits: 100,
-      features: [
+      features: JSON.stringify([
         "20 Campaigns",
         "100 AI Credits/month",
         "Advanced Analytics",
         "AI Recommendations",
         "Affiliate Program",
         "Priority Support",
-      ],
+      ]),
     },
   });
 
   const agencyPlan = await prisma.plan.upsert({
-    where: { name: PlanType.AGENCY },
+    where: { name: "AGENCY" },
     update: {},
     create: {
-      name: PlanType.AGENCY,
+      name: "AGENCY",
       price: 49,
       maxCampaigns: 999,
       maxAiCredits: 500,
-      features: [
+      features: JSON.stringify([
         "Unlimited Campaigns",
         "500 AI Credits/month",
         "White-label Dashboard",
         "Client Management",
         "API Access",
         "Dedicated Support",
-      ],
+      ]),
     },
   });
 
@@ -66,7 +66,7 @@ async function main() {
       name: "Admin",
       email: "admin@adsmaster.ai",
       passwordHash: adminHash,
-      role: Role.ADMIN,
+      role: "ADMIN",
       planId: agencyPlan.id,
       aiCredits: 9999,
       isVerified: true,
@@ -82,7 +82,7 @@ async function main() {
       name: "Demo User",
       email: "demo@adsmaster.ai",
       passwordHash: userHash,
-      role: Role.USER,
+      role: "USER",
       planId: proPlan.id,
       aiCredits: 100,
       isVerified: true,
@@ -163,11 +163,11 @@ async function main() {
         create: [
           {
             name: "Lookalike Audience 1%",
-            targeting: {
+            targeting: JSON.stringify({
               age_min: 25,
               age_max: 45,
               interests: ["Online Shopping", "Fashion"],
-            },
+            }),
             budget: 300,
             ads: {
               create: [

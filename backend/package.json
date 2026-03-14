@@ -12,7 +12,8 @@
     "db:seed": "ts-node ../database/seed/seed.ts",
     "db:studio": "prisma studio --schema=../database/prisma/schema.prisma",
     "test": "jest",
-    "lint": "eslint src --ext .ts"
+    "lint": "eslint src --ext .ts",
+    "render-build": "npm install && npx prisma db push --schema=../database/prisma/schema.prisma && npx prisma generate --schema=../database/prisma/schema.prisma && tsc"
   },
   "dependencies": {
     "@prisma/client": "^5.10.0",

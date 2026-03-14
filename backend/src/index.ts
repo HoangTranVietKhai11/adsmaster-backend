@@ -1,4 +1,9 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+import path from "path";
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+// Also try project root .env
+dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
+
 import app from "./app";
 import { logger } from "./utils/logger";
 import { prisma } from "./config/database";
@@ -9,16 +14,15 @@ async function main() {
     try {
         await prisma.$connect();
         logger.info("✅ Database connected");
-
-        app.listen(PORT, () => {
-            logger.info(`🚀 Server running on port ${PORT}`);
-            logger.info(`   Environment: ${process.env.NODE_ENV}`);
-            logger.info(`   API: http://localhost:${PORT}/api`);
-        });
     } catch (error) {
-        logger.error("Failed to start server:", error);
-        process.exit(1);
+        logger.warn("⚠️  Database connection failed — DB features will not work");
     }
+
+    app.listen(PORT, () => {
+        logger.info(`🚀 Server running on port ${PORT}`);
+        logger.info(`   Environment: ${process.env.NODE_ENV}`);
+        logger.info(`   API: http://localhost:${PORT}/api`);
+    });
 }
 
 process.on("SIGTERM", async () => {

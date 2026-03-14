@@ -7,13 +7,17 @@ const nextConfig = {
         remotePatterns: [{ protocol: "https", hostname: "**.amazonaws.com" }],
     },
     async rewrites() {
+        // NEXT_PUBLIC_API_URL is set in Vercel dashboard for production
+        // Falls back to localhost:4005 for local development
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4005";
         return [
             {
                 source: "/api/:path*",
-                destination: `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/:path*`,
+                destination: `${apiUrl}/api/:path*`,
             },
         ];
     },
 };
 
 module.exports = nextConfig;
+

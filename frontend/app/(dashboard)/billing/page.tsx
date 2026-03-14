@@ -6,30 +6,30 @@ import { Check, Zap, Crown, Building2, CreditCard, Loader2 } from "lucide-react"
 
 const plans = [
     {
-        name: "Free",
+        name: "Miễn phí",
         icon: Zap,
         price: 0,
-        period: "forever",
-        features: ["3 Campaigns", "10 AI Credits/month", "Basic Analytics", "Community Support"],
-        cta: "Current Plan",
+        period: "mãi mãi",
+        features: ["3 Chiến dịch", "10 AI Credits/tháng", "Phân tích cơ bản", "Hỗ trợ cộng đồng"],
+        cta: "Gói hiện tại",
         disabled: true,
     },
     {
         name: "Pro",
         icon: Crown,
         price: 19,
-        period: "month",
+        period: "tháng",
         popular: true,
-        features: ["20 Campaigns", "100 AI Credits/month", "Advanced Analytics", "AI Recommendations", "Affiliate Program", "Priority Support"],
-        cta: "Upgrade to Pro",
+        features: ["20 Chiến dịch", "100 AI Credits/tháng", "Phân tích nâng cao", "Gợi ý từ AI", "Chương trình cộng tác", "Ưu tiên hỗ trợ"],
+        cta: "Nâng cấp lên Pro",
     },
     {
         name: "Agency",
         icon: Building2,
         price: 49,
-        period: "month",
-        features: ["Unlimited Campaigns", "500 AI Credits/month", "White-label Dashboard", "Client Management", "API Access", "Dedicated Support"],
-        cta: "Upgrade to Agency",
+        period: "tháng",
+        features: ["Không giới hạn chiến dịch", "500 AI Credits/tháng", "Dashboard nhãn trắng", "Quản lý khách hàng", "Truy cập API", "Hỗ trợ riêng"],
+        cta: "Nâng cấp lên Agency",
     },
 ];
 
@@ -48,8 +48,8 @@ export default function BillingPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-2xl font-bold text-white">Billing & Plans</h1>
-                <p className="text-muted-foreground text-sm mt-0.5">Choose the plan that scales with your business</p>
+                <h1 className="text-2xl font-bold text-white">Thanh toán & Gói dịch vụ</h1>
+                <p className="text-muted-foreground text-sm mt-0.5">Chọn gói phù hợp để mở rộng quy mô kinh doanh của bạn</p>
             </div>
 
             {/* Plans */}
@@ -64,7 +64,7 @@ export default function BillingPage() {
                     >
                         {plan.popular && (
                             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                <span className="gradient-brand text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
+                                <span className="gradient-brand text-white text-xs font-bold px-4 py-1 rounded-full">Phổ biến nhất</span>
                             </div>
                         )}
                         <div className="flex items-center gap-3 mb-4">
@@ -94,7 +94,7 @@ export default function BillingPage() {
                 ${plan.popular ? "btn-primary" : plan.disabled ? "bg-white/5 text-muted-foreground cursor-default" : "border border-white/10 text-white hover:bg-white/5"}`}
                         >
                             {loading === plan.name ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
-                            {plan.disabled ? "Current Plan" : loading === plan.name ? "Redirecting..." : plan.cta}
+                            {plan.disabled ? "Gói hiện tại" : loading === plan.name ? "Đang chuyển hướng..." : plan.cta}
                         </button>
                     </motion.div>
                 ))}
@@ -102,9 +102,9 @@ export default function BillingPage() {
 
             {/* Billing info */}
             <div className="glass-card rounded-2xl p-6">
-                <h3 className="font-semibold text-white mb-4 flex items-center gap-2"><CreditCard className="w-4 h-4 text-brand-500" /> Billing History</h3>
+                <h3 className="font-semibold text-white mb-4 flex items-center gap-2"><CreditCard className="w-4 h-4 text-brand-500" /> Lịch sử thanh toán</h3>
                 <div className="text-center py-8 text-muted-foreground text-sm">
-                    <p>No payments yet. Upgrade to a paid plan to see billing history.</p>
+                    <p>Chưa có giao dịch nào. Nâng cấp để xem lịch sử thanh toán tại đây.</p>
                 </div>
             </div>
         </div>
